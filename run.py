@@ -1,4 +1,6 @@
 import os
+import win32com.client
+
 legal_path = os.path.join(os.getcwd(),"legal.LIS")
 permit_path = os.path.join(os.getcwd(),"permit.LIS")
 
@@ -47,7 +49,9 @@ def rounddown(floatnumber):
         return str(int(floatnumber)) + '.0'
 
 
-import win32com.client
+# Start the transfer of values to Word Document swith
+# win32com.client
+
 w = win32com.client.Dispatch('Word.Application')
 w.Visible = 0  
 w.DisplayAlerts = 0
