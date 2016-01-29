@@ -1,14 +1,35 @@
+'''
+Change value of Output_Case accordingly by examples below
+Case 1
+Value more than 100 needs to be reported as 99.9
+95.4 needs to be reported as 95.0
+95.5 needs to be reported as 95.5
+95.9 needs to be reported as 95.5
+
+Case 2
+Value more than 100 needs to be reported as 99.9
+95.4 needs to be reported as 95.0
+95.5 needs to be reported as 95.0
+95.9 needs to be reported as 95.0
+'''
+
+Output_Case = 1
+
 import os
 import win32com.client
 
 #Read the path of LIS and .docx files from CURRENT folder.
-#legal.LIS and permit.LIS
-legal_path = os.path.join(os.getcwd(),"legal.LIS")
-permit_path = os.path.join(os.getcwd(),"permit.LIS")
+def FindPath()
+    legal_path = os.path.join(os.getcwd(),"legal.LIS")
+    permit_path = os.path.join(os.getcwd(),"permit.LIS")
+    
+    for item in os.listdir('.'):
+        if item.find(".docx") != -1:
+            summary_path = os.path.join(os.getcwd(),item)
 
-for item in os.listdir('.'):
-    if item.find(".docx") != -1:
-        summary_path = os.path.join(os.getcwd(),item)
+
+
+
 
 
 legal_file = open(legal_path, 'r')
@@ -39,20 +60,20 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7]:
 permit_file.close()
 
 #Function to process both the controlling stress and the load capactiy in ton.
-def rounddown(floatnumber):
-    if floatnumber == 'M':
+def rounddown(x):
+    if x == 'M':
         return 'Moment'
-    elif floatnumber == 'V':
+    elif x == 'V':
         return 'Shear'
-    elif floatnumber == 'S':
+    elif x == 'S':
         return 'Serviceability'
-    elif float(floatnumber)-int(floatnumber) >= 0.5:
-        return float(int(floatnumber)+0.5)
+    elif float(x)-int(x) >= 0.5:
+        return float(int(x)+0.5)
     else:
-        return str(int(floatnumber)) + '.0'
+        return str(int(x)) + '.0'
 
 
-# Start the transfer of values to Word Document swith
+# Start the transfer of values to Word Document with
 # win32com.client
 
 w = win32com.client.Dispatch('Word.Application')
