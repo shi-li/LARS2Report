@@ -1,12 +1,15 @@
 import os
 import win32com.client
 
+#Read the path of LIS and .docx files from CURRENT folder.
+#legal.LIS and permit.LIS
 legal_path = os.path.join(os.getcwd(),"legal.LIS")
 permit_path = os.path.join(os.getcwd(),"permit.LIS")
 
 for item in os.listdir('.'):
     if item.find(".docx") != -1:
         summary_path = os.path.join(os.getcwd(),item)
+
 
 legal_file = open(legal_path, 'r')
 legal_list = []
@@ -35,7 +38,7 @@ for i in [0, 1, 2, 3, 4, 5, 6, 7]:
 
 permit_file.close()
 
-
+#Function to process both the controlling stress and the load capactiy in ton.
 def rounddown(floatnumber):
     if floatnumber == 'M':
         return 'Moment'
