@@ -11,6 +11,7 @@ Close all running MS Word Application before you run the script.
 Make sure working folder has only 1 MS Word file .docx
 
 How to:
+
 1 Copy 'run.py' and 'summary.docx' to your 'LARS working folder'. (Use summary.docx provided)
 
 2 Copy 'FLXCRT.LIS' to your 'LARS working folder' and rename accordingly. (legal.LIS and permit.LIS)
